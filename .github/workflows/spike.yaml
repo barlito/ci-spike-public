@@ -1,0 +1,13 @@
+name: spike
+on: workflow_dispatch
+permissions:
+  contents: read
+  deployments: write
+jobs:
+  inherit:
+    uses: barlito/ci/.github/workflows/spike.yaml@spike/phase-1
+    secrets: inherit
+  explicit:
+    uses: barlito/ci/.github/workflows/spike.yaml@spike/phase-1
+    secrets:
+      SPIKE_REPO_SECRET: ${{ secrets.SPIKE_REPO_SECRET }}
